@@ -1,7 +1,18 @@
 class OrdersController < ApplicationController
 
   def show
+
+    items = LineItem.find_by(order_id: params[:id])
     @order = Order.find(params[:id])
+    
+    if items != []
+      @purchased = @order.line_items
+    else
+      items.each do |item|
+        item = Product.find(item.product_id)
+      end
+      @purchased = items
+    end
   end
 
   def create
