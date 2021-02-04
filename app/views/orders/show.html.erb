@@ -19,11 +19,9 @@
     </thead>
     <tbody>
   <% @order.line_items.each do |item| %>
-  
     <%= render 'order_confirmation', product: item.product, quantity: item[:quantity].to_i %>
-    <% end %>
+  <% end %>
 
-    
     </tbody>
     <tfoot>
       <tr>
@@ -37,7 +35,5 @@
     </tfoot>
   </table>
 </div>
-
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
-
 </section>
